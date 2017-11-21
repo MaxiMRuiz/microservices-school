@@ -14,7 +14,7 @@ before_install:
   - cd ./$SERVICE
   - nvm install
   - nvm use
-  - node --version
+  - npm install --only=production
 
 install: 
   - yarn install
@@ -24,9 +24,9 @@ before_script:
   - sleep 10
 
 script:
-  - make qa
   - make brand
   - make package
+  - make qa
 
 matrix:
   include:
