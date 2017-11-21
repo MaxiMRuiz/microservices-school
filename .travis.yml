@@ -21,11 +21,13 @@ install:
 
 before_script:
   - SERVICE=$SERVICE make ensure-dependencies
-  - sleep 10
+  - sleep 5
 
 script:
   - make qa
-  - make brand
+  - TRAVIS_BUILD_ID=$TRAVIS_BUILD_ID TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER make brand
+  - DOCKER_USERNAME=$DOCKER_USERNAME DOCKER_PASSWORD=$DOCKER_PASSWORD make build
+  - DOCKER_USERNAME=$DOCKER_USERNAME DOCKER_PASSWORD=$DOCKER_PASSWORD SERVICE=$SERVICE TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER make build
 
 matrix:
   include:
