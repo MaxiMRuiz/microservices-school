@@ -25,9 +25,9 @@ before_script:
 
 script:
   - make qa
-  - TRAVIS_BUILD_ID=$TRAVIS_BUILD_ID TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER make brand
+  - make brand
   - make build
-  
+
 matrix:
   include:
     - env: SERVICE=recipes-api
