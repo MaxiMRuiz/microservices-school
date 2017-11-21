@@ -21,12 +21,12 @@ install:
 
 before_script:
   - SERVICE=$SERVICE make ensure-dependencies
-  - sleep 5
+  - sleep 10
 
 script:
   - make qa
   - make brand
-  - make build
+  - make package
 
 matrix:
   include:
